@@ -1,0 +1,120 @@
+
+/* #main_bg_img {
+    width: 100%;
+    height:max-content;
+}
+
+#main_text {
+    color: white;
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    right: 30%;
+    font-size: 32px;
+} */
+
+h1 {
+    font-size: 96px;
+}
+#main {
+    background-image: url("/assets/images/index_main.png");
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    padding: 50px 100px;
+}
+
+#main p {
+    font-size: 24px;
+    margin-right: 300px;
+}
+
+#logo_main {
+    bottom: 0px;
+    vertical-align: bottom;
+}
+
+/* #carousel {
+    padding: 80px;
+} */
+
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+#slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  padding-top: 100px;
+}
+
+/* Hide the images by default */
+.card {
+  display: none;
+}
+#cardDefault {
+    display: grid;
+}
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: gray;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.card {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes card {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+#catalogButton {
+    background-color: var(--text-accent-color);
+    color:white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 40px 0px;
+}
+

@@ -1,0 +1,132 @@
+:root {
+    --text-accent-color: #884AA6;
+    --content-padding: 100px;
+}
+
+.marck-script-regular {
+  font-family: "Marck Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.montserrat-regular {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    font-family: "Montserrat"
+}
+
+.logo_text {
+    font-family: "Marck Script";
+}
+
+header {
+    background-color: black;
+    position: fixed;
+    width: 100%;    
+    z-index: 2;
+    padding-left: 100px;
+    padding-bottom: 10px;
+
+}
+
+nav {
+     margin-right: calc(var(--content-padding)*1.8);
+}
+header nav ul {
+    list-style-type: none;
+    color: white;
+}
+
+header nav ul li {
+    float: right;
+    padding: 6px 30px;
+    border-radius: 10px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+header nav ul li a:hover {
+  color: var(--text-accent-color);
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding:  26px var(--content-padding);
+}
+footer p {
+    text-align: right;
+    /* align-self: right; */
+    padding-left: 500px;
+    font-size: small;
+}
+footer img {
+    padding-top: 10px;
+    float: left;
+}
+.active {
+    background-color: var(--text-accent-color);
+    color:white;
+}
+
+#logo {
+    float: left;
+    padding-top: 20px ;
+}
+
+
+.card p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    /* text-overflow: ellipsis;
+    white-space: nowrap; */
+}
+
+.card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /* float: left; */
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 150px auto;
+    gap: 50px; 
+    padding: 10px 50px;
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    
+}
+
+.card div .link {
+    text-align: right;
+}
+
+.card h3 {
+    margin-top: 0px;
+}
+
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
