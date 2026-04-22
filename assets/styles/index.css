@@ -1,18 +1,3 @@
-
-/* #main_bg_img {
-    width: 100%;
-    height:max-content;
-}
-
-#main_text {
-    color: white;
-    position: absolute;
-    top: 20%;
-    left: 5%;
-    right: 30%;
-    font-size: 32px;
-} */
-
 h1 {
     font-size: 96px;
 }
@@ -34,10 +19,6 @@ h1 {
     vertical-align: bottom;
 }
 
-/* #carousel {
-    padding: 80px;
-} */
-
 
 * {box-sizing:border-box}
 
@@ -54,7 +35,7 @@ h1 {
   display: none;
 }
 #cardDefault {
-    display: grid;
+  display: grid;
 }
 /* Next & previous buttons */
 .prev, .next {

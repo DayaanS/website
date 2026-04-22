@@ -21,7 +21,7 @@ async function loadJsonFile(path) {
     // Parse the JSON response into a JavaScript object  
     const jsonData = await response.json();  
 
-    // Use the data (log to console for testing) 
+    // Use the data
     personIndex = getPageName()
     console.log(personIndex)
     content(jsonData, personIndex,"content")
@@ -34,35 +34,44 @@ async function loadJsonFile(path) {
 
 function content(datafull, i, parentId){
     const parent = document.getElementById(parentId)
-    parent.innerHTML = ''
     const data = datafull[i];
-    console.log(data.name)
 
+    // Change title to person's name
     document.title = data.name;
-    const divCard = document.createElement("div");
-    parent.appendChild(divCard)
 
+    // Section with portrait and basic info
+    const divCard = document.createElement("div");
+    divCard.className = "personCard";
+    // Portrait
     const img = document.createElement("img");
     img.src = data.portrait;
     img.setAttribute("id","portrait")
     divCard.appendChild(img);
-
+    // Basic info
     const divCardInf = document.createElement("div");
-    divCard.appendChild(divCardInf)
-
+    // Name
     const h = document.createElement("h1");
     h.innerText = data.name;
     divCardInf.appendChild(h);
-
+    // Info table
     const table = document.createElement("table");
-    tableRow(table,"Дата рождения", data, "birthdate");
-    tableRow(table,"Дата смерти", data, "deathdate");
+    if (data.birthdate !=null) {
+        tableRow(table,"Дата рождения", data, "birthdate");
+    }
+    if (data.deathdate !=null) {
+        tableRow(table,"Дата смерти", data, "deathdate");
+    }
     tableRow(table,"Ученая степень", data, "uch_st");
     tableRow(table,"Ученое звание", data, "uch_zv");
     tableRow(table,"Факультет", data, "faculty");
-    tableRow(table,"Специальность", data, "spec");
+    if (data.specialty != null) {
+        tableRow(table,"Специальность", data, "spec");
+    } 
     divCardInf.append(table)
+    divCard.appendChild(divCardInf)
+    parent.appendChild(divCard)
 
+    // Biography
     const bio = contentSection("Биография",parentId);
     for (let i=0; i <data.bio.length; i++) {
         const p = document.createElement("p")
@@ -70,6 +79,7 @@ function content(datafull, i, parentId){
         bio.appendChild(p)
     }
 
+    // Prizes
     const prizes = contentSection("Награды",parentId);
     const ulP = document.createElement("ul")
     for (let i=0; i <data.prizes.length; i++) {
@@ -78,7 +88,8 @@ function content(datafull, i, parentId){
         ulP.appendChild(li)
     }
     prizes.appendChild(ulP)
-    
+
+    // Works
     const works = contentSection("Труды",parentId);
     wP = document.createElement("p")
     wP.innerText = data.works[0]
@@ -91,17 +102,21 @@ function content(datafull, i, parentId){
     }
     works.appendChild(ulW)
 
-    gallery = contentSection("Галерея", parentId);
-    for (let i=0; i < data.gallery.length; i++) {
-        const img = document.createElement("img");
-        img.src = data.gallery[i][0];
-        gallery.appendChild(img);
-        const p = document.createElement("p");
-        p.innerText = data.gallery[i][1];
-        gallery.appendChild(p)
+    // Gallery
+    if (data.gallery != null) {
+        gallery = contentSection("Галерея", parentId);
+        for (let i=0; i < data.gallery.length; i++) {
+            const img = document.createElement("img");
+            img.src = data.gallery[i][0];
+            gallery.appendChild(img);
+            const p = document.createElement("p");
+            p.innerText = data.gallery[i][1];
+            gallery.appendChild(p)
+        }
+        gallery.setAttribute("id","gallery")
     }
-    gallery.setAttribute("id","gallery")
 
+    //Sources
     sources = contentSection("Источники",parentId);
     ulS = document.createElement("ul")
     for (let i=0; i <data.sources.length; i++) {
@@ -115,10 +130,10 @@ function content(datafull, i, parentId){
         
     }
     sources.appendChild(ulS)
-    
 }
 
 function tableRow(parent,name,data,key) {
+    // creates a table row element and appends it to parent
     const tr = document.createElement("tr");
     const th = document.createElement("th");
     const td = document.createElement("td");
@@ -129,18 +144,11 @@ function tableRow(parent,name,data,key) {
 }
 
 function contentSection(name,parentId) {
+    // creates a div with a heading, returns the div
     const section = document.createElement("div");
     const sectionH = document.createElement("h2");
     sectionH.innerText = name;
     section.appendChild(sectionH);
-    // const ul = document.createElement("ul");
-    // for (let i=0; i < contentArr.lenght; i++) {
-    //     const li = document.createElement("li");
-    //     li.innerText = contentArr[i]
-    //     ul.appendChild(li)
-        
-    // }
-    // section.appendChild(ul)
     document.getElementById(parentId).appendChild(section);
     return section
 }
