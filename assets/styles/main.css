@@ -130,3 +130,15 @@ footer img {
     justify-content: center;
     align-items: center;
 }
+
+.pageLinksList {
+    /* display: none; */
+    padding-top: 70px;
+    float: right;
+    margin-right: 130px;
+    background-color: white;
+    position: fixed;
+    z-index: 1;
+    right: 0;
+}
+

@@ -55,11 +55,35 @@ function createButtons(data) {
     content.appendChild(buttonsDiv)
     const hSort = document.createElement("h2");
     hSort.innerText = "Сортировать"
+    const searchBar = document.createElement("div");
+    searchBar.innerHTML = '<input id="searchbar" onkeyup="search()" type="text" name="search" placeholder="Поиск..."></input>';
+    // const searchButton = document.createElement("button");
+    // searchButton.onclick = function() {search()}
+    // searchButton.type ="submit"
+    // searchButton.className = "searchButton"
+    // searchButton.innerText = "Ввести"
     buttonsDiv.appendChild(hSort)
     buttonsDiv.appendChild(buttonSortName);
     buttonsDiv.appendChild(buttonSortDate);
     buttonsDiv.appendChild(buttonSortAZ);
     buttonsDiv.appendChild(buttonSortZA);
+    buttonsDiv.appendChild(searchBar);
+    // buttonsDiv.appendChild(searchButton)
+}
+
+function search() {
+    console.log
+    let input = document.getElementById('searchbar').value
+    input = input.toLowerCase();
+    let x = document.getElementsByClassName('card');
+    for (i = 0; i < x.length; i++) {
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display = "none";
+        }
+        else {
+            x[i].style.display = "grid";
+        }
+    }
 }
 
 function sortName(data) {

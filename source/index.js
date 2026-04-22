@@ -24,11 +24,21 @@ async function loadJsonFile(path) {
 }  
 
 function carousel(data) {
-    const cardDef = card(data,0,"slideshow-container");
-    cardDef.setAttribute("id", "cardDefault");
+    // const cardDef = card(data,0,"slideshow-container");
+    // cardDef.setAttribute("id", "cardDefault");
+    let min = 0;
+    let max = data.length - 1;
+    let count = 3; 
+    let random = [];
 
-    for (let i=0; i < 5; i++) {
-        card(data,i,"slideshow-container");
+    for (let i = 0; i < count; i++) {
+        let n = Math.floor(Math.random() * (max - min + 1)) + min;
+        random.push(n);
+    }
+
+    for (let i=0; i < random.length; i++) {
+        cardN = card(data,random[i],"slideshow-container");
+        // cardN.setAttribute("id",`card${i}`)
     }
     
     showSlides();

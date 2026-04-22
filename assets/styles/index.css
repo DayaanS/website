@@ -34,9 +34,9 @@ h1 {
 .card {
   display: none;
 }
-#cardDefault {
+/* #cardDefault {
   display: grid;
-}
+} */
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
